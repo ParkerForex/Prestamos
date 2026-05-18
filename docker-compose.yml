@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
 
   sqlserver:
@@ -8,6 +10,8 @@ services:
       SA_PASSWORD: "PrestamosP@ss123"
     ports:
       - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
     networks:
       - prestamospro-net
 
@@ -44,7 +48,7 @@ services:
       - prestamospro-net
 
   auth-service:
-    build: ~/IdeaProjects/auth-service
+    build: ./auth-service
     container_name: auth-service
     ports:
       - "8081:8081"
@@ -58,7 +62,7 @@ services:
       - prestamospro-net
 
   cliente-service:
-    build: ~/IdeaProjects/cliente-service
+    build: ./cliente-service
     container_name: cliente-service
     ports:
       - "8082:8082"
@@ -72,7 +76,7 @@ services:
       - prestamospro-net
 
   prestamo-service:
-    build: ~/IdeaProjects/prestamo-service
+    build: ./prestamo-service
     container_name: prestamo-service
     ports:
       - "8083:8083"
@@ -89,7 +93,7 @@ services:
       - prestamospro-net
 
   pago-service:
-    build: ~/IdeaProjects/pago-service
+    build: ./pago-service
     container_name: pago-service
     ports:
       - "8084:8084"
@@ -106,7 +110,7 @@ services:
       - prestamospro-net
 
   reporte-service:
-    build: ~/IdeaProjects/reporte-service
+    build: ./reporte-service
     container_name: reporte-service
     ports:
       - "8085:8085"
@@ -122,7 +126,7 @@ services:
       - prestamospro-net
 
   notif-service:
-    build: ~/IdeaProjects/notif-service
+    build: ./notif-service
     container_name: notif-service
     ports:
       - "8086:8086"
@@ -136,3 +140,6 @@ services:
 networks:
   prestamospro-net:
     driver: bridge
+
+volumes:
+  sql_data:

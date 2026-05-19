@@ -531,17 +531,6 @@ La app móvil será desarrollada en **Flutter** y consumirá exactamente los mis
 
 ---
 
-## 🌐 Producción (próximamente)
-
-**Opción recomendada — Railway o Render:**
-1. Subir código a GitHub ✅
-2. Conectar Railway con el repo
-3. Configurar variables de entorno
-4. Deploy automático en cada push
-
-**Costo estimado:** ~$20 USD/mes para toda la infraestructura.
-
----
 
 ## 📋 Usuarios de prueba
 
